@@ -1,0 +1,31 @@
+x_is_one(A,B):-
+    mod(B, 8) is (mod(A, 8) + 1).
+
+x_is_one(A,B):-
+    mod(B, 8) is (mod(A, 8) - 1).
+
+x_is_two(A,B):-
+    mod(B, 8) is (mod(A, 8) + 2).
+
+x_is_two(A,B):-
+    mod(B, 8) is (mod(A, 8) - 2).
+
+y_is_one(A,B):-
+    floor(B/8) is (floor(A/8) + 1).
+    
+y_is_one(A,B):-
+    floor(B/8) is (floor(A/8) - 1).
+
+y_is_two(A,B):-
+    floor(B/8) is (floor(A/8) + 2).
+    
+y_is_two(A,B):-
+    floor(B/8) is (floor(A/8) - 2).
+
+jump(A,B):-
+	x_is_one(A, B),
+	y_is_two(A, B).
+
+jump(A,B):-
+    x_is_two(A,B),
+    y_is_one(A,B).
